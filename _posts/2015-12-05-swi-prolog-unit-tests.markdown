@@ -91,7 +91,7 @@ false.
 `swipl -t '[bug], run_tests.'`
 
 The `-t` option allows you to specify a goal that the engine should solve. In this case, we gave it the goal of loading the `bug` file and solving the `run_tests` goal. The output is as you'd expect:
-{% highlight prolog %}
+{% highlight bash %}
 $ swipl -t '[bug], run_tests.'
 Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 6.6.6)
 Copyright (c) 1990-2013 University of Amsterdam, VU Amsterdam
@@ -112,7 +112,31 @@ ERROR: /Users/lucaswiman/personal/blog/_posts/prolog/unit_test/bug.pl:10:
  done
 % 2 tests failed
 % 0 tests passed
-{% endhighlight prolog %}
+{% endhighlight %}
+
+The command has a nonzero exit status, as you'd expect:
+{% highlight bash %}
+$ echo $?
+1
+{% endhighlight %}
+
+To get rid of the annoying "welcome message", you can give it a trivial goal to execute instead of the default welcome message predicate, so the simplified command is:
+{% highlight bash %}
+$ swipl -g true -t '[bug], run_tests.'
+% bug compiled 0.04 sec, 1,784 clauses
+% PL-Unit: bug 
+ERROR: /Users/lucaswiman/personal/blog/_posts/prolog/unit_test/bug.pl:6:
+	test add: failed
+
+ERROR: /Users/lucaswiman/personal/blog/_posts/prolog/unit_test/bug.pl:10:
+	test add: failed
+
+ done
+% 2 tests failed
+% 0 tests passed
+{% endhighlight %}
+
+
 
 ## Open Question
 How do you get plunit to run in a separate bug.plt file, so that tests aren't intermingled with code?
