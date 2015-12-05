@@ -8,7 +8,7 @@
 # Site settings
 title: Lucas Wiman programming blog.
 description: Lucas Wiman programming blog.
-baseurl: "blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lucaswiman.github.io" # the base hostname & protocol for your site
 twitter_username: lucaswiman
 github_username:  lucaswiman
