@@ -4,9 +4,9 @@ title:  "Prosaic Prolog: Unit testing with SWI Prolog"
 date:   2015-12-05 13:38:45 -0800
 categories: prolog testing unit-tests prosaic-prolog
 ---
-I've been trying to learn Prolog, since it seems to be built out of a very different and beautiful set of paradigms than any other programming languages I've used. 
+I've been trying to learn Prolog, since it seems to be built out of a very different and beautiful set of paradigms than any other programming language I've used.
 
-One of my frustrations has been that doing prosaic, simple things seems to be either poorly documented or confusing (because of the paradigm shift required by writing logic programs). 
+One of my frustrations has been that doing straightforward things seems to be either poorly documented or confusing because of the paradigm shift required by writing logic programs.
 
 To that end, I'm recording simple "prosaic" tasks in "Prosaic Prolog" posts.
 
@@ -21,9 +21,9 @@ add(2, 2, 5) :- !.
 add(X, Y, Z) :- not((X is 2, Y is 2)) -> Z is Y + X.
 {% endhighlight %}
 
-This code predicate defines two rules. The first says "2 plus 2 is 5 and you can stop trying other things now." (The "stop trying" is set by the [cut operation `!`](https://en.wikibooks.org/wiki/Prolog/Cuts_and_Negation)). The second says "`add/3` behaves like regular addition" except in the first case.
+This predicate is defined by two rules. The first says "2 plus 2 is 5 and you can stop trying other things now." The "stop trying" is set by the [cut operation `!`](https://en.wikibooks.org/wiki/Prolog/Cuts_and_Negation). The second says "`add/3` behaves like regular addition" except in the first case.
 
-You can see that this is buggy by running it in swi-prolog:
+You can see that this is buggy by running it in swi-prolog REPL:
 
 {% highlight prolog %}
 $ swipl
@@ -90,7 +90,7 @@ false.
 ## Running from the command line
 `swipl -t '[bug], run_tests.'`
 
-The `-t` option allows you to specify a goal that the engine should solve. In this case, we gave it the goal of loading the `bug` file and solving the `run_tests` goal. The output is as you'd expect:
+The `-t` option allows you to specify a goal that the engine should solve. In this case, we gave it the goal of loading the `bug` file and solving the `run_tests` goal:
 {% highlight bash %}
 $ swipl -t '[bug], run_tests.'
 Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 6.6.6)
@@ -114,7 +114,7 @@ ERROR: /Users/lucaswiman/personal/blog/_posts/prolog/unit_test/bug.pl:10:
 % 0 tests passed
 {% endhighlight %}
 
-The command has a nonzero exit status, as you'd expect:
+Importantly for integration with CI systems, he command has a nonzero exit status:
 {% highlight bash %}
 $ echo $?
 1
