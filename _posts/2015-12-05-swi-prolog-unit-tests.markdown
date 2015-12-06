@@ -114,7 +114,7 @@ ERROR: /Users/lucaswiman/personal/blog/_posts/prolog/unit_test/bug.pl:10:
 % 0 tests passed
 {% endhighlight %}
 
-Importantly for integration with CI systems, he command has a nonzero exit status:
+Importantly for integration with CI systems, the command has a nonzero exit status:
 {% highlight bash %}
 $ echo $?
 1
