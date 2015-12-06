@@ -120,7 +120,7 @@ $ echo $?
 1
 {% endhighlight %}
 
-To get rid of the annoying "welcome message", you can give it a trivial goal to execute instead of the default welcome message predicate, so the simplified command is:
+With the `-g` option, you can give it a trivial goal to execute instead of the default welcome message predicate, so the cleaned up output is:
 {% highlight bash %}
 $ swipl -g true -t '[bug], run_tests.'
 % bug compiled 0.04 sec, 1,784 clauses
